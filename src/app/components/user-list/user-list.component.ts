@@ -3,6 +3,7 @@ import { APIENDPOINT } from '../../config/configuration';
 import { UserService } from '../../services/users/user.service';
 import { UserModel } from 'src/app/models/user.model';
 import { BusinessResultModel } from 'src/app/models/businessresult.model';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-user-list',
@@ -36,5 +37,19 @@ export class UserListComponent implements OnInit {
     this.userList.push(newUser);
 
   }
+
+public deleteUser(id: number) {
+this.userService.delete(`${APIENDPOINT.user}/${id}`).
+subscribe((resp: any) => {
+  this.response = resp;
+  if (this.response.SuccessfulOperation) {
+    // tslint:disable-next-line:only-arrow-functions
+    this.userList = _.remove(this.userList, function(n) {
+      return  n.Id !== id;
+    });
+  }
+
+});
+}
 
 }
