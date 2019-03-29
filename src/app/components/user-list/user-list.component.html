@@ -1,0 +1,39 @@
+
+<app-user-add  (emitUser)="eventGetNewUser( $event )" ></app-user-add>
+<hr/>
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">Users</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">UserName</th>
+            <th scope="col">User Pass</th>
+            <th scope="col">Creation Date</th>
+            <th scope="col">Update Date</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList">
+            <td scope="row"> {{ user.Id }} </td>
+            <td> {{ user.UserName }} </td>
+            <td> {{ user.UserPass }} </td>
+            <td> {{ user.CreationDate | date:"dd/MM/yyyy" }} </td>
+            <td> {{ user.UpdateDate | date:"dd/MM/yyyy" }} </td>
+            <td> 
+                <div class="btn-group">
+                    <a class="btn btn-outline-secondary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                    <a class="btn btn-outline-danger btn-xs"><i class="fa fa-trash-o"></i> Delete</a>
+                </div>
+             </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

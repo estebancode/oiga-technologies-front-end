@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <button class="btn btn-outline-success pull-right" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        Create user
+      </button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="collapseExample" [ngbCollapse]="isCollapsed">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="newUser" (ngSubmit)="saveUser()" novalidate="novalidate" >
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="userName">UserName</label>
+                <div class="col-md-6">
+                  <input id="userName" formControlName="UserName" name="userName" type="text"
+                    placeholder="@oiga.technologies" class="form-control input-md" required="">
+                    <span class="help-block" >  </span>
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="userPass">UserPass</label>
+                <div class="col-md-6">
+                  <input id="userPass" formControlName="UserPass" name="userPass" type="password"
+                    placeholder="Oiga2019*" class="form-control input-md" required="">
+                    <span class="help-block">  </span>
+                </div>
+              </div>
+
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="saveUser"></label>
+                <div class="col-md-4">
+                  <button id="saveUser" type="submit" name="saveUser" class="btn btn-success">Save</button>
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
