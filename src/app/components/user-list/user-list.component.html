@@ -1,6 +1,5 @@
-
-<app-user-add  (emitUser)="eventGetNewUser( $event )" ></app-user-add>
-<hr/>
+<app-user-add (emitUser)="eventGetNewUser( $event )"></app-user-add>
+<hr />
 <div class="container">
   <div class="row">
     <h2 class="text-center">Users</h2>
@@ -25,15 +24,64 @@
             <td> {{ user.UserPass }} </td>
             <td> {{ user.CreationDate | date:"dd/MM/yyyy" }} </td>
             <td> {{ user.UpdateDate | date:"dd/MM/yyyy" }} </td>
-            <td> 
-                <div class="btn-group">
-                    <a class="btn btn-outline-secondary btn-xs"><i class="fa fa-edit"></i> Edit</a>
-                    <button class="btn btn-outline-danger btn-xs" (click)="deleteUser(user.Id)" ><i class="fa fa-trash-o"></i> Delete</button>
-                </div>
-             </td>
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-outline-secondary btn-xs" (click)="openSm(content,user)"><i
+                    class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-outline-danger btn-xs" (click)="deleteUser(user.Id)"><i
+                    class="fa fa-trash-o"></i> Delete</button>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+
+<!-- modal edit user  -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit user</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="updateUser" (ngSubmit)="editUser()" novalidate="novalidate">
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="userName">UserName</label>
+        <div class="col-md-6">
+          <input id="userName" formControlName="UserName" name="userName" type="text" placeholder="@oiga.technologies"
+            value="{{userModel.UserName}}" class="form-control input-md" required="">
+          <span class="help-block"> </span>
+        </div>
+      </div>
+
+      <input id="id" formControlName="Id" name="id" type="hidden" placeholder="@oiga.technologies"
+      value="{{userModel.Id}}" class="form-control input-md" required="">
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="userPass">UserPass</label>
+        <div class="col-md-6">
+          <input id="userPass" formControlName="UserPass" name="userPass" type="text" placeholder="Oiga2019*"
+            value="{{userModel.UserPass}}" class="form-control input-md" required="">
+          <span class="help-block"> </span>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="saveUser"></label>
+        <div class="col-md-4">
+          <button id="saveUser" type="submit" name="saveUser" class="btn btn-success">Edit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

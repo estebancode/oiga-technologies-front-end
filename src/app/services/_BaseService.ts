@@ -36,9 +36,6 @@ export abstract class BaseService<TModel> {
 
 // post
     public post(endPoint: string, object: TModel) {
-        // this.headers = new HttpHeaders({
-        //     'Content-Type': '*'
-        // });
         return this.httpClient.post<BusinessResultModel<TModel[]>>(`${this.API_ROOT}${endPoint}`, object, { headers: this.headers })
             .pipe(map(resp => {
                 return resp;
