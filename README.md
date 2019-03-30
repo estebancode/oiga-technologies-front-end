@@ -1,27 +1,16 @@
 # OigaTechnologiesFrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+Proyecto de prueba para el ingre de Oiga Technologies
 
-## Development server
+______________________________________________________
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+CONFIGURACIONES E INSTALACIONES
 
-## Code scaffolding
+______________________________________________________-
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1) debe tener instalado node js en su versión 10.13.0 y npm 6.9.0
+2) ejercutar el comando " NPM I " en la consola de comandos.
+3) debe estar ejecutado la aplicación back-end (Oiga.Technologies)
+4) verificar el endpoint de salida en el proyecto back-end (Oiga.Technologies)
+5) en caso de que el endpoint cambie debe ser cambiando en el archivo /src/environments/environment.ts
+6) ejecutar el comando " NG SERVE -O " en la consola de comandos para ejecutar la aplicación front-end
